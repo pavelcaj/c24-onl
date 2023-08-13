@@ -30,7 +30,7 @@ public class Hw3 {
 
         System.out.println();
 
-        // находим индексы и выводи
+        // находим индексы и выводим
 
         for (int i = 0; i < mass.length; i++) {
             if (min == mass[i]) {
