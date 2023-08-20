@@ -7,7 +7,7 @@ package lesson6.person;
  * текст*...» и "*fullName* walk.".
  * 2.2 Добавьте два конструктора - Person() и Person(fullName, age).
  * 2.3 Создайте два объекта этого класса. Один объект инициализируется конструктором
- * Person(), другой - Person(fullName, age). Вызовите методы move() и talk()
+ * Person(), другой- Person(fullName, age). Вызовите методы move() и talk()
  */
 public class Person {
     String fullName;

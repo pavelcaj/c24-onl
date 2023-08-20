@@ -1,5 +1,8 @@
 package lesson6.person;
 
+/**
+ *
+ */
 public class Main {
     public static void main(String[] args) {
         Person valody = new Person();
