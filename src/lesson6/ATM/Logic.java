@@ -1,4 +1,7 @@
 package lesson6.ATM;
+/**
+ *
+ */
 
 import lesson6.ATM.ATM.*;
 import lesson6.ATM.Main.*;
