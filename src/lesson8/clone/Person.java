@@ -38,4 +38,3 @@ public class Person implements Cloneable {
                 '}';
     }
 }
-
