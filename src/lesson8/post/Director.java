@@ -6,3 +6,4 @@ public class Director implements Name{
         System.out.println("Director");
     }
 }
+

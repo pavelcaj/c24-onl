@@ -6,3 +6,4 @@ public class Accountant implements Name{
         System.out.println("Accountant");
     }
 }
+

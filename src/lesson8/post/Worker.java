@@ -6,3 +6,4 @@ public class Worker implements Name{
         System.out.println("Worker");
     }
 }
+
