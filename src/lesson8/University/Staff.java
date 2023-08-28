@@ -39,3 +39,4 @@ public class Staff extends University{
         this.post = post;
     }
 }
+

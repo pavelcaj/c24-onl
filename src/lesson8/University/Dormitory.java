@@ -17,3 +17,4 @@ public class Dormitory extends University{
         this.room = room;
     }
 }
+
