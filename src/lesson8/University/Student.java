@@ -1,8 +1,11 @@
 package lesson8.University;
 
-public class Student extends University{
+public class Student {
     private String name;
     private String surname;
+    private String number_Group;
+    private String link_To_Dormitory;
+    private int link_To_Room;
 
 
     public String getName() {
@@ -24,9 +27,7 @@ public class Student extends University{
         this.surname = surname;
     }
 
-    private String number_Group;
-    private String link_To_Dormitory;
-    private int link_To_Room;
+
 
     public int getLink_To_Room() {
         return link_To_Room;

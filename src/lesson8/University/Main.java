@@ -2,31 +2,28 @@ package lesson8.University;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 /**
- Делаем классы для работы с университетом.
- В универе есть массив студентов, сотрудников и общежитий.
- Студенты (поля имя, фамилия, номер группы, место проживания),
- сотрудники (поля имя, фамилия, должность - препод, декан, ректор и т д),
- общежитие (адрес, название, массив комнат). Сделать меню с 6 пунктами:
- 1) Добавление студента в универ 2) Добавление сотрудника в универ
- 3) Заселить студента в общежитие 4) Просмотр всех студентов
- 5) Просмотр всех сотрудников 6) Выход.
-
+ * Делаем классы для работы с университетом.
+ * В универе есть массив студентов, сотрудников и общежитий.
+ * Студенты (поля имя, фамилия, номер группы, место проживания),
+ * сотрудники (поля имя, фамилия, должность - препод, декан, ректор и т д),
+ * общежитие (адрес, название, массив комнат). Сделать меню с 6 пунктами:
+ * 1) Добавление студента в универ 2) Добавление сотрудника в универ
+ * 3) Заселить студента в общежитие 4) Просмотр всех студентов
+ * 5) Просмотр всех сотрудников 6) Выход.
  */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         University university = new University();
-        Boolean[] rooms = {true, true, false, false, true, false, false, false, false};
 
+        int[][] dormitryMass = {{0}, {1, 1}, {0, 0, 0}, {1, 0}, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0}};
+        Dormitory dormitory = new Dormitory("ул. Пушкина, д.2", "Общежитие 10", dormitryMass);
 
-        ArrayList<Dormitory> dormitories = new ArrayList<>();
-        dormitories.add(new Dormitory("ул. Пушкина, д.2", "Общежитие 10", rooms));
-
-        university.setDormitories(dormitories);
 
         ArrayList<Student> students = new ArrayList<>();
-        students.add(new Student("Инва", "Иванов", "25", "Общежитие 10", 0));
+        students.add(new Student("Инва", "Иванов", "25", "Общежитие 10", 1));
         students.add(new Student("Инга", "Иванович", "23", "Общежитие 10", 1));
         students.add(new Student("Юрий", "Инович", "23", "Общежитие 10", 3));
         university.setStudents(students);
@@ -60,20 +57,7 @@ public class Main {
                     System.out.print("Введите группу студента: ");
                     String num = sc.next();
 
-                    // System.out.print("Введите общежитие: ");
-                    // String dorm = sc.next();
 
-                    //boolean c = true;
-                    //  while (c) {
-                    //  System.out.print("Введите комнату: ");
-                    // int r = sc.nextInt();
-                    //   if (rooms[r] != true) {
-                    //    c = false;
-                    //  rooms[r] = true;
-                    //Student newStudent = new Student(firstName, lastName, num, dorm, r);
-                    //university.addStudent(newStudent);
-                    //}
-                    //}
                     Student newStudent = new Student(firstName, lastName, num);
                     university.addStudent(newStudent);
                     break;
@@ -116,11 +100,18 @@ public class Main {
                             while (v) {
                                 System.out.println("Введите номер комнаты:");
                                 int roomNumber = sc.nextInt();
-                                if (rooms[roomNumber] != true) {
-                                    studentToAssign.setLink_To_Dormitory(dormitoryNumber);
-                                    studentToAssign.setLink_To_Room(roomNumber);
-                                    System.out.println("Студент " + studentToAssign.getName() + " " + studentToAssign.getSurname() + " успешно заселен в комнату " + studentToAssign.getLink_To_Dormitory() + " общежития " + studentToAssign.getLink_To_Dormitory());
-                                    v = false;
+                                for (int i = 1; i < dormitryMass.length - 1; i++) {
+                                    for (int j = 0; j < dormitryMass[i].length; j++) {
+
+                                        if (dormitryMass[i][j] != 1) {
+                                            dormitryMass[i][j] = 1;
+                                            studentToAssign.setLink_To_Dormitory(dormitoryNumber);
+                                            studentToAssign.setLink_To_Room(roomNumber);
+                                            System.out.println("Студент " + studentToAssign.getName() + " " + studentToAssign.getSurname() + " успешно заселен в комнату " + studentToAssign.getLink_To_Dormitory() + " общежития " + studentToAssign.getLink_To_Dormitory());
+                                            v = false;
+                                            break;
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -157,6 +148,7 @@ public class Main {
                     System.out.println("Вы ввели что-то не то ");
                     break;
             }
+            TimeUnit.SECONDS.sleep(3);
         }
     }
 }

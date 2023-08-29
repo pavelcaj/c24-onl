@@ -1,6 +1,7 @@
 package lesson8.shapes;
 
 public class Rectangle extends Shapes {
+    private double a, b;
     public double getA() {
         return a;
     }
@@ -17,15 +18,15 @@ public class Rectangle extends Shapes {
         this.b = b;
     }
 
-    private double a, b;
+
 
     @Override
-    double perimetr() {
+    public double perimetr() {
         return (a + b) * 2;
     }
 
     @Override
-    double area() {
+    public double area() {
         return a * b;
     }
 

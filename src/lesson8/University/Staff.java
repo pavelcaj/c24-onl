@@ -1,6 +1,6 @@
 package lesson8.University;
 
-public class Staff extends University{
+public class Staff {
     private String name;
     private String surname;
 

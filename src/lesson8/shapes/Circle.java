@@ -18,13 +18,13 @@ public class Circle extends Shapes {
     private final double p = 3.14;
 
     @Override
-    double perimetr() {
+    public double perimetr() {
 
         return 2 * p * r;
     }
 
     @Override
-    double area() {
+    public double area() {
 
         return p * r * r;
     }

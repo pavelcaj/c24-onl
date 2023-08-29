@@ -1,6 +1,7 @@
 package lesson8.shapes;
 
 public class Triangle extends Shapes {
+    private double a, b, c;
     public double getA() {
         return a;
     }
@@ -25,16 +26,16 @@ public class Triangle extends Shapes {
         this.c = c;
     }
 
-    private double a, b, c;
+
 
     @Override
-    double perimetr() {
+    public double perimetr() {
 
         return a + b + c;
     }
 
     @Override
-    double area() {
+    public double area() {
         return Math.sqrt((perimetr() / 2) * (perimetr() / 2 - a) * (perimetr() / 2 - b) * (perimetr() / 2 - c));
     }
 
